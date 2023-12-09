@@ -83,7 +83,7 @@ const Altitudestyles = StyleSheet.create({
     width: 60,
     borderWidth: 2,
     borderRadius: 50,
-    backgroundColor: 'black' // Set a background color that contrasts with the text color
+    backgroundColor: '#353' // Set a background color that contrasts with the text color
   },
   heightText: {
     fontSize: 20,

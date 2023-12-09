@@ -105,20 +105,20 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     bottom: 0,
-    left: 0,
     right: 0,
     height: 50,
-    width: 400,
+    width: 100,
     borderWidth: 1,
     borderRadius: 50,
-    backgroundColor: 'white' // Set a background color that contrasts with the text color
+    overflow: 'hidden',
+    alignItems: 'center',
+    backgroundColor: '#353' // Set a background color that contrasts with the text color
   },
   buttonbg: {
-    flex: 1,
-    backgroundColor: 'white' // Set a background color that contrasts with the text color
+    flex: 1
   },
   buttontx: {
     fontSize: 10,
-    color: 'black' // Set the text color to black
+    color: 'white' // Set the text color to black
   }
 });

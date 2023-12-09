@@ -86,6 +86,7 @@ const App = () => {
         {UserLocationRef != null && (
           <Altitude UserLocationRef={UserLocationRef} />
         )}
+        <StepCounter />
       </View>
     </View>
   );
