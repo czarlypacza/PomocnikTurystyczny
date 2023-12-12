@@ -4,9 +4,9 @@ import {barometer} from 'react-native-sensors';
 
 import Geolocation from 'react-native-geolocation-service';
 
-export default function Altitude({UserLocationRef}) {
+export default function Altitude() {
   const [height, setHeight] = React.useState(0);
-  const [pressure, setPressure] = useState(1018.37);
+  const [pressureSea, setPressureSea] = useState(1018.37);
   const [gpsPosition, setGpsPosition] = useState([0, 0]);
 
   const getPressureAPIData = (lat, lon) => {
@@ -18,18 +18,18 @@ export default function Altitude({UserLocationRef}) {
         '&appid=5886f8a39f021f7f8afff63952d42044'
     ).then(response =>
       response.json().then(data => {
-        setPressure(!data.main.sea_level ? 1018.37 : data.main.sea_level);
+        setPressureSea(!data.main.pressure ? 1018.37 : data.main.pressure);
       })
     );
   };
 
   const updateHeight = () => {
+    console.log(pressureSea);
     getPressureAPIData(gpsPosition[0], gpsPosition[1]);
-    console.log(pressure);
   };
 
-  const calculateHeight = (p: number): number => {
-    const pressureAtSeaLevel = pressure; //TODO:Ta wartosc jest zmienna wiecv trzeba znalesc api ktore ziera to z internetu
+  function calculateHeight(p: number, pATsea: number): number {
+    //const pressureAtSeaLevel = pressure; //TODO:Ta wartosc jest zmienna wiecv trzeba znalesc api ktore ziera to z internetu
     const LapseRate = -0.0065;
     const temperatureAtSeaLevel = 288.15;
     const gravity = 9.80665;
@@ -37,12 +37,12 @@ export default function Altitude({UserLocationRef}) {
     const universalGasConstant = 8.31447;
 
     const pressureRatio = Math.pow(
-      p / pressureAtSeaLevel,
+      p / pATsea,
       (LapseRate * universalGasConstant) / (gravity * molarMass)
     );
 
     return (temperatureAtSeaLevel / LapseRate) * (1 - pressureRatio);
-  };
+  }
 
   useEffect(() => {
     const subscription = barometer.subscribe(({pressure}) => {
@@ -59,12 +59,12 @@ export default function Altitude({UserLocationRef}) {
       );
       //getPressureAPIData(gpsPosition[0], gpsPosition[1]);
 
-      setHeight(calculateHeight(pressure));
+      setHeight(calculateHeight(pressure, pressureSea));
     });
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [pressureSea]);
 
   return (
     <Pressable style={Altitudestyles.heightView} onPress={updateHeight}>

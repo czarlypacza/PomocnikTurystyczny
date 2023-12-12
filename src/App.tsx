@@ -56,6 +56,7 @@ const App = () => {
       if (result) {
         isLocationEnabled().then(enabled => {
           if (!enabled) {
+            console.log('not enabled');
             promptForEnableLocationIfNeeded().then(result => {
               setLocation(result === 'enabled' ? true : false);
             });
