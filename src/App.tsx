@@ -5,10 +5,6 @@ import Mapbox from '@rnmapbox/maps';
 import Altitude from './Alt/Altitude';
 import Map from './Map/Map';
 import StepCounter from './Step/StepCounter';
-import {
-  isLocationEnabled,
-  promptForEnableLocationIfNeeded
-} from 'react-native-android-location-enabler';
 
 Mapbox.setAccessToken(
   'pk.eyJ1IjoiY3phcmx5cGFjemEiLCJhIjoiY2xvOHJrbHA1MDR4dTJqbG01ZDA3ZHloNiJ9.aTEnlaUtpzs7S10k1Pmbgw'
@@ -40,31 +36,29 @@ const requestLocationPermission = async () => {
 };
 
 const App = () => {
-  const cameraRef = React.useRef<Mapbox.Camera>(null);
+  
 
   const UserLocationRef = React.useRef<Mapbox.UserLocation>(null);
 
   const [isLocationPermissionGranted, setLocationPermissionGranted] =
     useState(false);
 
-  const [isLocation, setLocation] = useState(false);
-
   useEffect(() => {
     requestLocationPermission().then(result => {
       setLocationPermissionGranted(result);
 
-      if (result) {
-        isLocationEnabled().then(enabled => {
-          if (!enabled) {
-            console.log('not enabled');
-            promptForEnableLocationIfNeeded().then(result => {
-              setLocation(result === 'enabled' ? true : false);
-            });
-          } else {
-            setLocation(true);
-          }
-        });
-      }
+      // if (result) {
+      //   isLocationEnabled().then(enabled => {
+      //     if (!enabled) {
+      //       console.log('not enabled');
+      //       promptForEnableLocationIfNeeded().then(result => {
+      //         setLocation(result === 'enabled' ? true : false);
+      //       });
+      //     } else {
+      //       setLocation(true);
+      //     }
+      //   });
+      //}
     });
   }, []);
 
@@ -78,15 +72,8 @@ const App = () => {
   ) : (
     <View style={styles.page}>
       <View style={styles.container}>
-        <Map
-          UserLocationRef={UserLocationRef}
-          cameraRef={cameraRef}
-          isLocation={isLocation}
-        />
-
-        {UserLocationRef != null && (
-          <Altitude UserLocationRef={UserLocationRef} />
-        )}
+        <Map UserLocationRef={UserLocationRef} />
+        <Altitude />
         <StepCounter />
       </View>
     </View>

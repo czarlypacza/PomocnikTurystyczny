@@ -1,0 +1,157 @@
+packs: [
+    {
+        "_metadata": null,
+        "pack": {
+            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.010679244995117,50.02460873653959]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.018404006958008,50.034988220297194]}}]}",
+            "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
+        }
+    }
+]
+pack: {
+    "_metadata": {
+        "name": "pack-1",
+        "whatIsThat": "foo"
+    },
+    "pack": {
+        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.010679244995117,50.02460873653959]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.018404006958008,50.034988220297194]}}]}",
+        "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
+    }
+} name: pack-1 bounds: {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.010679244995117,
+                    50.02460873653959
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.018404006958008,
+                    50.034988220297194
+                ]
+            }
+        }
+    ]
+} metadata {
+    "name": "pack-1",
+    "whatIsThat": "foo"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+packs: [
+    {
+        "_metadata": {
+            "name": "pack-1",
+            "whatIsThat": "foo"
+        },
+        "pack": {
+            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.02561378479004,49.99431208264091]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.03333854675293,50.004698112003965]}}]}",
+            "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
+        }
+    },
+    {
+        "_metadata": null,
+        "pack": {
+            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.04509735107422,49.969945076335]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.05282211303711,49.98033636809422]}}]}",
+            "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-2\"}"
+        }
+    }
+]
+pack: {
+    "_metadata": {
+        "name": "pack-1",
+        "whatIsThat": "foo"
+    },
+    "pack": {
+        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.02561378479004,49.99431208264091]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.03333854675293,50.004698112003965]}}]}",
+        "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
+    }
+} name: pack-1 bounds: {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.02561378479004,
+                    49.99431208264091
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.03333854675293,
+                    50.004698112003965
+                ]
+            }
+        }
+    ]
+} metadata {
+    "name": "pack-1",
+    "whatIsThat": "foo"
+}
+pack: {
+    "_metadata": {
+        "name": "pack-2",
+        "whatIsThat": "foo"
+    },
+    "pack": {
+        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.04509735107422,49.969945076335]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.05282211303711,49.98033636809422]}}]}",
+        "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-2\"}"
+    }
+} name: pack-2 bounds: {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.04509735107422,
+                    49.969945076335
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.05282211303711,
+                    49.98033636809422
+                ]
+            }
+        }
+    ]
+} metadata {
+    "name": "pack-2",
+    "whatIsThat": "foo"
+}

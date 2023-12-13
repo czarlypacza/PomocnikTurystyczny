@@ -9,6 +9,20 @@ export default function Altitude() {
   const [pressureSea, setPressureSea] = useState(1018.37);
   const [gpsPosition, setGpsPosition] = useState([0, 0]);
 
+  const getCurrentLocation = () => {
+    Geolocation.getCurrentPosition(
+      position => {
+        setGpsPosition([position.coords.latitude, position.coords.longitude]);
+        //console.log(position);
+      },
+      error => {
+        // See error code charts below.
+        console.log(error.code, error.message);
+      },
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
+    );
+  };
+
   const getPressureAPIData = (lat, lon) => {
     fetch(
       'http://api.openweathermap.org/data/2.5/weather?lat=' +
@@ -24,6 +38,7 @@ export default function Altitude() {
   };
 
   const updateHeight = () => {
+    getCurrentLocation();
     console.log(pressureSea);
     getPressureAPIData(gpsPosition[0], gpsPosition[1]);
   };
@@ -46,19 +61,6 @@ export default function Altitude() {
 
   useEffect(() => {
     const subscription = barometer.subscribe(({pressure}) => {
-      Geolocation.getCurrentPosition(
-        position => {
-          setGpsPosition([position.coords.latitude, position.coords.longitude]);
-          //console.log(position);
-        },
-        error => {
-          // See error code charts below.
-          console.log(error.code, error.message);
-        },
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
-      );
-      //getPressureAPIData(gpsPosition[0], gpsPosition[1]);
-
       setHeight(calculateHeight(pressure, pressureSea));
     });
     return () => {

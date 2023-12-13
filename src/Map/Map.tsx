@@ -1,31 +1,114 @@
+import geoViewport from '@mapbox/geo-viewport';
 import React, {useRef, useEffect, useState} from 'react';
-import Mapbox, {UserLocation} from '@rnmapbox/maps';
-import {View, StyleSheet, Pressable, Text} from 'react-native';
+import Mapbox, {Camera, UserLocation, offlineManager} from '@rnmapbox/maps';
 import {
-  isLocationEnabled,
-  promptForEnableLocationIfNeeded
+  View,
+  StyleSheet,
+  Pressable,
+  Text,
+  Dimensions,
+  Button
+} from 'react-native';
+import {
+  promptForEnableLocationIfNeeded,
+  isLocationEnabled
 } from 'react-native-android-location-enabler';
 
-const Map = ({UserLocationRef, cameraRef, isLocation}) => {
-  const coordinatesUR = [22.01453964870298, 50.02980135312927];
+const STYLE_URL = 'mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2';
+
+const Map = ({UserLocationRef}) => {
+  const coordinatesUR: [number, number] = [
+    22.01453964870298, 50.02980135312927
+  ];
   const [camera, setCamera] = useState(coordinatesUR);
 
-  const goback = () => {
-    isLocationEnabled().then(enabled => {
-      if (!enabled) {
-        promptForEnableLocationIfNeeded();
-      } //Nie sprawdzone
-    });
+  const [cameraCoords, setcameraCoords] = useState(coordinatesUR);
 
+  const [isLocation, setLocation] = useState(false);
+  const [packName, setPackName] = useState('pack-1');
+  const [packNO, setPackNO] = useState(1);
+
+  const cameraRef = React.useRef<Mapbox.Camera>(null);
+
+  const goback = () => {
     if (UserLocationRef.current?.state.coordinates == null) {
       console.log('aaa');
     }
-    //getCameraLocation();
     setCamera(UserLocationRef.current?.state.coordinates);
-    cameraRef.current?.setCamera({
-      centerCoordinate: camera,
-      zoomLevel: 14
+    // cameraRef.current?.setCamera({
+    //   centerCoordinate: camera,
+    //   zoomLevel: 14
+    // });
+  };
+
+  useEffect(() => {
+    isLocationEnabled().then(result => {
+      setLocation(result);
     });
+  }, []);
+
+  async function waitForCoordinates() {
+    return new Promise(resolve => {
+      const interval = setInterval(() => {
+        if (UserLocationRef.current?.state.coordinates != null) {
+          clearInterval(interval);
+          resolve(UserLocationRef.current?.state.coordinates);
+        }
+      }, 100);
+    });
+  }
+
+  async function handleEnabledPressed() {
+    try {
+      const enableResult = await promptForEnableLocationIfNeeded();
+      console.log('enableResult', enableResult);
+      setLocation(true);
+      waitForCoordinates().then(() => {
+        goback();
+      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+    }
+  }
+
+  const onCameraChanged = regionFeature => {
+    //console.log(regionFeature.properties.center);
+    setcameraCoords(regionFeature.properties.center);
+    console.log('Camera: ' + cameraCoords);
+  };
+
+  const DownloadMapOffline = () => {
+    const {width, height} = Dimensions.get('window');
+    const bounds: [number, number, number, number] = geoViewport.bounds(
+      cameraCoords,
+      15,
+      [width, height],
+      512
+    );
+
+    setPackNO(packNO + 1);
+    let pack = 'pack-' + packNO;
+    console.log(pack);
+    setPackName(pack);
+
+    const options = {
+      name: packName,
+      styleURL: STYLE_URL,
+      bounds: [
+        [bounds[0], bounds[1]],
+        [bounds[2], bounds[3]]
+      ] as [[number, number], [number, number]],
+      minZoom: 10,
+      maxZoom: 20,
+      metadata: {
+        whatIsThat: 'foo'
+      }
+    };
+    offlineManager.createPack(options, (region, status) =>
+      console.log('=> progress callback region:', 'status: ', status)
+    );
   };
 
   return (
@@ -33,10 +116,11 @@ const Map = ({UserLocationRef, cameraRef, isLocation}) => {
       <Mapbox.MapView
         style={styles.map}
         projection="globe"
-        styleURL="mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2"
+        styleURL={STYLE_URL}
         logoEnabled={false}
         compassEnabled={true}
-        scaleBarEnabled={false}>
+        scaleBarEnabled={false}
+        onCameraChanged={onCameraChanged}>
         <Mapbox.Camera
           ref={cameraRef}
           zoomLevel={14}
@@ -48,7 +132,7 @@ const Map = ({UserLocationRef, cameraRef, isLocation}) => {
           <Mapbox.Callout title="Witaj na UR" contentStyle={styles.callout} />
         </Mapbox.PointAnnotation>
       </Mapbox.MapView>
-      {isLocation && (
+      {(isLocation && (
         <Pressable style={styles.button} onPress={goback}>
           <View style={styles.buttonbg}>
             <Text style={styles.buttontx}>
@@ -58,7 +142,44 @@ const Map = ({UserLocationRef, cameraRef, isLocation}) => {
             </Text>
           </View>
         </Pressable>
+      )) || (
+        <Pressable style={styles.button} onPress={handleEnabledPressed}>
+          <View style={styles.buttonbg}>
+            <Text style={styles.buttontx}>Enable location</Text>
+          </View>
+        </Pressable>
       )}
+      <Pressable style={styles.buttonOffline} onPress={DownloadMapOffline}>
+        <Text style={styles.buttontx}>offline</Text>
+      </Pressable>
+
+      <Button
+        title="Get all packs"
+        onPress={async () => {
+          const packs = await offlineManager.getPacks();
+          console.log('=> packs:', packs);
+          packs.forEach(pack => {
+            console.log(
+              'pack:',
+              pack,
+              'name:',
+              pack.name,
+              'bounds:',
+              pack?.bounds,
+              'metadata',
+              pack?.metadata
+            );
+          });
+        }}
+      />
+      <Pressable
+        style={styles.buttonRM}
+        onPress={async () => {
+          await offlineManager.resetDatabase().then(() => {
+            console.log('Reset DB done');
+          });
+        }}
+      />
     </View>
   );
 };
@@ -84,16 +205,30 @@ const styles = StyleSheet.create({
   callout: {
     borderRadius: 5
   },
-  // button: {
-  //   position: 'absolute',
-  //   bottom: 0,
-  //   left: 0,
-  //   right: 0,
-  //   height: 50,
-  //   width: 50,
-  //   borderWidth: 1,
-  //   borderRadius: 50,
-  // },
+  buttonOffline: {
+    position: 'absolute',
+    top: '8%',
+    right: 0,
+    height: 50,
+    width: 50,
+    borderWidth: 1,
+    borderRadius: 50,
+    backgroundColor: '#353',
+    alignItems: 'center',
+    padding: 'auto'
+  },
+  buttonRM: {
+    position: 'absolute',
+    top: '16%',
+    right: 0,
+    height: 50,
+    width: 50,
+    borderWidth: 1,
+    borderRadius: 50,
+    backgroundColor: '#353',
+    alignItems: 'center',
+    padding: 'auto'
+  },
   // buttonbg: {
   //   flex: 1,
   //   backgroundColor: 'white',
