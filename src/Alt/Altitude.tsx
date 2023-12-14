@@ -10,38 +10,51 @@ export default function Altitude() {
   const [gpsPosition, setGpsPosition] = useState([0, 0]);
 
   const getCurrentLocation = () => {
-    Geolocation.getCurrentPosition(
-      position => {
-        setGpsPosition([position.coords.latitude, position.coords.longitude]);
-        //console.log(position);
-      },
-      error => {
-        // See error code charts below.
-        console.log(error.code, error.message);
-      },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
-    );
+    return new Promise((resolve, reject) => {
+      Geolocation.getCurrentPosition(
+        position => {
+          setGpsPosition([position.coords.latitude, position.coords.longitude]);
+          resolve(position);
+        },
+        error => {
+          console.log(error.code, error.message);
+          reject(error);
+        },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
+      );
+    });
   };
 
   const getPressureAPIData = (lat, lon) => {
-    fetch(
+    return fetch(
       'http://api.openweathermap.org/data/2.5/weather?lat=' +
         lat +
         '&lon=' +
-        lon + // TODO: uzyj oddzielnej golokacji niz tej z mapbox
+        lon +
         '&appid=5886f8a39f021f7f8afff63952d42044'
-    ).then(response =>
-      response.json().then(data => {
+    )
+      .then(response => response.json())
+      .then(data => {
         setPressureSea(!data.main.pressure ? 1018.37 : data.main.pressure);
-      })
-    );
+        console.log(data);
+      });
   };
 
-  const updateHeight = () => {
-    getCurrentLocation();
-    console.log(pressureSea);
-    getPressureAPIData(gpsPosition[0], gpsPosition[1]);
-  };
+  async function updateHeight() {
+    try {
+      const location = await getCurrentLocation();
+      console.log(location);
+      console.log('--------------------------------------------');
+
+      const pressureData = await getPressureAPIData(
+        location.coords.latitude,
+        location.coords.longitude
+      );
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   function calculateHeight(p: number, pATsea: number): number {
     //const pressureAtSeaLevel = pressure; //TODO:Ta wartosc jest zmienna wiecv trzeba znalesc api ktore ziera to z internetu
