@@ -36,12 +36,15 @@ const requestLocationPermission = async () => {
 };
 
 const App = () => {
-  
-
   const UserLocationRef = React.useRef<Mapbox.UserLocation>(null);
 
   const [isLocationPermissionGranted, setLocationPermissionGranted] =
     useState(false);
+
+  const [OfflineManagerState, setOfflineManagerState] = useState(false);
+
+  const [PressureMemory, setPressureMemory] = useState(1018.37);
+  const [StepsMemory, setStepsMemory] = useState(0);
 
   useEffect(() => {
     requestLocationPermission().then(result => {
@@ -72,9 +75,23 @@ const App = () => {
   ) : (
     <View style={styles.page}>
       <View style={styles.container}>
-        <Map UserLocationRef={UserLocationRef} />
-        <Altitude />
-        <StepCounter />
+        <Map
+          UserLocationRef={UserLocationRef}
+          isOffline={OfflineManagerState}
+          setisOffline={setOfflineManagerState}
+        />
+        {!OfflineManagerState && (
+          <>
+            <Altitude
+              PressureMemory={PressureMemory}
+              setPressureMemory={setPressureMemory}
+            />
+            <StepCounter
+              StepsMemory={StepsMemory}
+              setStepsmemory={setStepsMemory}
+            />
+          </>
+        )}
       </View>
     </View>
   );

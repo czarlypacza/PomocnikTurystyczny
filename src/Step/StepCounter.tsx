@@ -51,12 +51,12 @@ type AdditionalInfo = Partial<ParsedStepCountData>;
  * @returns {React.ReactComponentElement} - Returns Application Component.
  * @example
  */
-export default function StepCounter(): JSX.Element {
+export default function StepCounter({StepsMemory, setStepsmemory}): JSX.Element {
   const [loaded, setLoaded] = React.useState(false);
   const [supported, setSupported] = React.useState(false);
   const [granted, setGranted] = React.useState(false);
   const [sensorType, setSensorType] = React.useState<SensorName>('NONE');
-  const [stepCount, setStepCount] = React.useState(0);
+  const [stepCount, setStepCount] = React.useState(StepsMemory);
   const [additionalInfo, setAdditionalInfo] =
     React.useState<AdditionalInfo>(initState);
 
@@ -83,6 +83,7 @@ export default function StepCounter(): JSX.Element {
       setSensorType(data.counterType as SensorName);
       const parsedData = parseStepData(data);
       setStepCount(parsedData.steps);
+      setStepsmemory(parsedData.steps);
       setAdditionalInfo({
         ...parsedData
       });
@@ -153,7 +154,7 @@ export default function StepCounter(): JSX.Element {
           valueSuffix="steps"
           progressValueFontSize={20}
           radius={80}
-          activeStrokeColor="#353"
+          activeStrokeColor="#2F4F4F"
           inActiveStrokeColor="#4c6394"
           inActiveStrokeOpacity={0.6}
           inActiveStrokeWidth={20}

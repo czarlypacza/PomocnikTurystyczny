@@ -1,131 +1,387 @@
-packs: [
-    {
-        "_metadata": null,
-        "pack": {
-            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.010679244995117,50.02460873653959]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.018404006958008,50.034988220297194]}}]}",
-            "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
-        }
-    }
-]
-pack: {
-    "_metadata": {
-        "name": "pack-1",
-        "whatIsThat": "foo"
-    },
-    "pack": {
-        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.010679244995117,50.02460873653959]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.018404006958008,50.034988220297194]}}]}",
-        "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
-    }
-} name: pack-1 bounds: {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    22.010679244995117,
-                    50.02460873653959
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    22.018404006958008,
-                    50.034988220297194
-                ]
-            }
-        }
-    ]
-} metadata {
-    "name": "pack-1",
-    "whatIsThat": "foo"
-}
-
-
-
-
-
-
-
-
-
-
-
-
-packs: [
+ => packs: [
     {
         "_metadata": {
+            "_rnmapbox": [Object
+            ],
             "name": "pack-1",
-            "whatIsThat": "foo"
+            "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils3719376243191208818.png"
         },
         "pack": {
-            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.02561378479004,49.99431208264091]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.03333854675293,50.004698112003965]}}]}",
-            "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
+            "bounds": [Array
+            ],
+            "completedResourceCount": 12,
+            "completedResourceSize": 38307472,
+            "expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+            "metadata": "{\"name\":\"pack-1\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils3719376243191208818.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.0098853,49.6901279],[22.0176101,49.6901279],[22.0176101,49.7005795],[22.0098853,49.7005795],[22.0098853,49.6901279]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+            "percentage": 100,
+            "requiredResourceCount": 12,
+            "state": "complete"
+        }
+    },
+    {
+        "_metadata": {
+            "_rnmapbox": [Object
+            ],
+            "name": "pack-4",
+            "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils6022390217088892389.png"
+        },
+        "pack": {
+            "bounds": [Array
+            ],
+            "completedResourceCount": 12,
+            "completedResourceSize": 38128923,
+            "expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+            "metadata": "{\"name\":\"pack-4\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils6022390217088892389.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.2651458,49.8529887],[22.2728705,49.8529887],[22.2728705,49.8634052],[22.2651458,49.8634052],[22.2651458,49.8529887]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+            "percentage": 100,
+            "requiredResourceCount": 12,
+            "state": "complete"
+        }
+    },
+    {
+        "_metadata": {
+            "_rnmapbox": [Object
+            ],
+            "name": "pack-5",
+            "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils2823944122533093909.png"
+        },
+        "pack": {
+            "bounds": [Array
+            ],
+            "completedResourceCount": 12,
+            "completedResourceSize": 40116649,
+            "expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+            "metadata": "{\"name\":\"pack-5\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils2823944122533093909.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.0319867,49.9909048],[22.0397115,49.9909048],[22.0397115,50.0012915],[22.0319867,50.0012915],[22.0319867,49.9909048]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+            "percentage": 100,
+            "requiredResourceCount": 12,
+            "state": "complete"
+        }
+    },
+    {
+        "_metadata": {
+            "_rnmapbox": [Object
+            ],
+            "name": "pack-6",
+            "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7968960114028599134.png"
+        },
+        "pack": {
+            "bounds": [Array
+            ],
+            "completedResourceCount": 12,
+            "completedResourceSize": 21778559,
+            "expires": "Sat Dec 16 14:58:10 GMT+01:00 2023",
+            "metadata": "{\"name\":\"pack-6\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils7968960114028599134.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.5059867,49.6850054],[22.5137115,49.6850054],[22.5137115,49.695458],[22.5059867,49.695458],[22.5059867,49.6850054]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+            "percentage": 100,
+            "requiredResourceCount": 12,
+            "state": "complete"
         }
     },
     {
         "_metadata": null,
         "pack": {
-            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.04509735107422,49.969945076335]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.05282211303711,49.98033636809422]}}]}",
-            "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-2\"}"
+            "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[21.774258613586426,49.61328907845779]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[21.781983375549316,49.6237571795711]}}]}",
+            "metadata": "{\"uri\":\"file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7071313620756984427.png\",\"name\":\"pack-7\"}"
         }
     }
 ]
-pack: {
+ LOG  pack: {
     "_metadata": {
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
         "name": "pack-1",
-        "whatIsThat": "foo"
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils3719376243191208818.png"
     },
     "pack": {
-        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.02561378479004,49.99431208264091]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.03333854675293,50.004698112003965]}}]}",
-        "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-1\"}"
+        "bounds": [
+            22.0176100730896,
+            49.70057946052339,
+            22.00988531112671,
+            49.69012787322763
+        ],
+        "completedResourceCount": 12,
+        "completedResourceSize": 38307472,
+        "expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+        "metadata": "{\"name\":\"pack-1\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils3719376243191208818.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.0098853,49.6901279],[22.0176101,49.6901279],[22.0176101,49.7005795],[22.0098853,49.7005795],[22.0098853,49.6901279]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+        "percentage": 100,
+        "requiredResourceCount": 12,
+        "state": "complete"
     }
-} name: pack-1 bounds: {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    22.02561378479004,
-                    49.99431208264091
-                ]
-            }
+} name: pack-1 bounds: [
+    22.0176100730896,
+    49.70057946052339,
+    22.00988531112671,
+    49.69012787322763
+] metadata {
+    "_rnmapbox": {
+        "bounds": {
+            "coordinates": [Array
+            ],
+            "type": "Polygon"
         },
-        {
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    22.03333854675293,
-                    50.004698112003965
-                ]
-            }
-        }
-    ]
-} metadata {
+        "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+        "zoomRange": [
+            10,
+            20
+        ]
+    },
     "name": "pack-1",
-    "whatIsThat": "foo"
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils3719376243191208818.png"
+}
+ LOG  pack: {
+    "_metadata": {
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
+        "name": "pack-4",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils6022390217088892389.png"
+    },
+    "pack": {
+        "bounds": [
+            22.272870540618896,
+            49.86340520778343,
+            22.26514577865601,
+            49.85298868382172
+        ],
+        "completedResourceCount": 12,
+        "completedResourceSize": 38128923,
+        "expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+        "metadata": "{\"name\":\"pack-4\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils6022390217088892389.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.2651458,49.8529887],[22.2728705,49.8529887],[22.2728705,49.8634052],[22.2651458,49.8634052],[22.2651458,49.8529887]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+        "percentage": 100,
+        "requiredResourceCount": 12,
+        "state": "complete"
+    }
+} name: pack-4 bounds: [
+    22.272870540618896,
+    49.86340520778343,
+    22.26514577865601,
+    49.85298868382172
+] metadata {
+    "_rnmapbox": {
+        "bounds": {
+            "coordinates": [Array
+            ],
+            "type": "Polygon"
+        },
+        "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+        "zoomRange": [
+            10,
+            20
+        ]
+    },
+    "name": "pack-4",
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils6022390217088892389.png"
+}
+ LOG  pack: {
+    "_metadata": {
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
+        "name": "pack-5",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils2823944122533093909.png"
+    },
+    "pack": {
+        "bounds": [
+            22.039711475372314,
+            50.001291520962575,
+            22.031986713409424,
+            49.9909047556266
+        ],
+        "completedResourceCount": 12,
+        "completedResourceSize": 40116649,
+        "expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+        "metadata": "{\"name\":\"pack-5\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils2823944122533093909.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.0319867,49.9909048],[22.0397115,49.9909048],[22.0397115,50.0012915],[22.0319867,50.0012915],[22.0319867,49.9909048]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+        "percentage": 100,
+        "requiredResourceCount": 12,
+        "state": "complete"
+    }
+} name: pack-5 bounds: [
+    22.039711475372314,
+    50.001291520962575,
+    22.031986713409424,
+    49.9909047556266
+] metadata {
+    "_rnmapbox": {
+        "bounds": {
+            "coordinates": [Array
+            ],
+            "type": "Polygon"
+        },
+        "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+        "zoomRange": [
+            10,
+            20
+        ]
+    },
+    "name": "pack-5",
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils2823944122533093909.png"
+}
+ LOG  pack: {
+    "_metadata": {
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
+        "name": "pack-6",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7968960114028599134.png"
+    },
+    "pack": {
+        "bounds": [
+            22.51371145248413,
+            49.69545804720456,
+            22.50598669052124,
+            49.68500535841807
+        ],
+        "completedResourceCount": 12,
+        "completedResourceSize": 21778559,
+        "expires": "Sat Dec 16 14:58:10 GMT+01:00 2023",
+        "metadata": "{\"name\":\"pack-6\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils7968960114028599134.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.5059867,49.6850054],[22.5137115,49.6850054],[22.5137115,49.695458],[22.5059867,49.695458],[22.5059867,49.6850054]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+        "percentage": 100,
+        "requiredResourceCount": 12,
+        "state": "complete"
+    }
+} name: pack-6 bounds: [
+    22.51371145248413,
+    49.69545804720456,
+    22.50598669052124,
+    49.68500535841807
+] metadata {
+    "_rnmapbox": {
+        "bounds": {
+            "coordinates": [Array
+            ],
+            "type": "Polygon"
+        },
+        "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+        "zoomRange": [
+            10,
+            20
+        ]
+    },
+    "name": "pack-6",
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7968960114028599134.png"
 }
 pack: {
     "_metadata": {
-        "name": "pack-2",
-        "whatIsThat": "foo"
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
+        "name": "pack-6",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7968960114028599134.png"
     },
     "pack": {
-        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.04509735107422,49.969945076335]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.05282211303711,49.98033636809422]}}]}",
-        "metadata": "{\"whatIsThat\":\"foo\",\"name\":\"pack-2\"}"
+        "bounds": [
+            22.51371145248413,
+            49.69545804720456,
+            22.50598669052124,
+            49.68500535841807
+        ],
+        "completedResourceCount": 12,
+        "completedResourceSize": 21778559,
+        "expires": "Sat Dec 16 14:58:10 GMT+01:00 2023",
+        "metadata": "{\"name\":\"pack-6\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils7968960114028599134.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[22.5059867,49.6850054],[22.5137115,49.6850054],[22.5137115,49.695458],[22.5059867,49.695458],[22.5059867,49.6850054]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+        "percentage": 100,
+        "requiredResourceCount": 12,
+        "state": "complete"
     }
-} name: pack-2 bounds: {
+} name: pack-6 bounds: [
+    22.51371145248413,
+    49.69545804720456,
+    22.50598669052124,
+    49.68500535841807
+] metadata {
+    "_rnmapbox": {
+        "bounds": {
+            "coordinates": [Array
+            ],
+            "type": "Polygon"
+        },
+        "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+        "zoomRange": [
+            10,
+            20
+        ]
+    },
+    "name": "pack-6",
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7968960114028599134.png"
+}
+ LOG  pack: {
+    "_metadata": {
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
+        +"name": "pack-7",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7071313620756984427.png"
+    },
+    "pack": {
+        "bounds": [
+            21.78198337554932,
+            49.6237571795711,
+            21.77425861358643,
+            49.61328907845779
+        ],
+        "completedResourceCount": 12,
+        +"completedResourceSize": 37939944,
+        +"expires": "Wed Dec 13 23:48:16 GMT+01:00 2023",
+        "metadata": "{\"name\":\"pack-7\",\"uri\":\"file:\\/\\/\\/data\\/user\\/0\\/com.react_mapbox_test\\/cache\\/BitmapUtils7071313620756984427.png\",\"_rnmapbox\":{\"bounds\":{\"coordinates\":[[[21.7742586,49.6132891],[21.7819834,49.6132891],[21.7819834,49.6237572],[21.7742586,49.6237572],[21.7742586,49.6132891]]],\"type\":\"Polygon\"},\"zoomRange\":[10,20],\"styleURI\":\"mapbox:\\/\\/styles\\/czarlypacza\\/clp2ub6sr00d201qt40zw7kv2\"}}",
+        +"percentage": 100,
+        "requiredResourceCount": 12,
+        +"state": "complete"
+    }
+} name: pack-7 bounds: [
+    21.78198337554932,
+    49.6237571795711,
+    21.77425861358643,
+    49.61328907845779
+] metadata {
+    "_rnmapbox": {
+        "bounds": {
+            "coordinates": [Array
+            ],
+            "type": "Polygon"
+        },
+        "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+        "zoomRange": [
+            10,
+            20
+        ]
+    },
+    "name": "pack-7",
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils7071313620756984427.png"
+}
+
+pack: {
+    "_metadata": {
+        "name": "pack-5",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils4818403181515233736.png"
+    },
+    "pack": {
+        "bounds": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.05127716064453,49.68692115885187]}},{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\",\"coordinates\":[22.059001922607422,49.69737343569491]}}]}",
+        "metadata": "{\"uri\":\"file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils4818403181515233736.png\",\"name\":\"pack-5\"}"
+    }
+} name: pack-5 bounds: {
     "type": "FeatureCollection",
     "features": [
         {
@@ -134,8 +390,8 @@ pack: {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    22.04509735107422,
-                    49.969945076335
+                    22.05127716064453,
+                    49.68692115885187
                 ]
             }
         },
@@ -145,13 +401,35 @@ pack: {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    22.05282211303711,
-                    49.98033636809422
+                    22.059001922607422,
+                    49.69737343569491
                 ]
             }
         }
     ]
 } metadata {
-    "name": "pack-2",
-    "whatIsThat": "foo"
+    "name": "pack-5",
+    "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils4818403181515233736.png"
+}
+LOG  => status {
+    "completedResourceCount": 12,
+    "completedResourceSize": 38307472,
+    "erroredResourceCount": 0,
+    "loadedResourceCount": 0,
+    "loadedResourceSize": 0,
+    "metadata": {
+        "_rnmapbox": {
+            "bounds": [Object
+            ],
+            "styleURI": "mapbox://styles/czarlypacza/clp2ub6sr00d201qt40zw7kv2",
+            "zoomRange": [Array
+            ]
+        },
+        "name": "pack-5",
+        "uri": "file:///data/user/0/com.react_mapbox_test/cache/BitmapUtils4818403181515233736.png"
+    },
+    "name": "pack-5",
+    "percentage": 100,
+    "requiredResourceCount": 12,
+    "state": "complete"
 }
