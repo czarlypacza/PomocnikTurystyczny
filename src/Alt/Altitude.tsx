@@ -3,11 +3,16 @@ import {View, Text, StyleSheet, Pressable} from 'react-native';
 import {barometer} from 'react-native-sensors';
 
 import Geolocation from 'react-native-geolocation-service';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Altitude() {
+export default function Altitude({PressureMemory, setPressureMemory}) {
   const [height, setHeight] = React.useState(0);
-  const [pressureSea, setPressureSea] = useState(1018.37);
+  const [pressureSea, setPressureSea] = useState(PressureMemory);
   const [gpsPosition, setGpsPosition] = useState([0, 0]);
+
+  const [isCalibrated, setIsCalibrated] = useState(
+    PressureMemory === 1018.37 ? false : true
+  );
 
   const getCurrentLocation = () => {
     return new Promise((resolve, reject) => {
@@ -37,6 +42,8 @@ export default function Altitude() {
       .then(data => {
         setPressureSea(!data.main.pressure ? 1018.37 : data.main.pressure);
         console.log(data);
+        setPressureMemory(!data.main.pressure ? 1018.37 : data.main.pressure);
+        setIsCalibrated(true);
       });
   };
 
@@ -50,7 +57,6 @@ export default function Altitude() {
         location.coords.latitude,
         location.coords.longitude
       );
-
     } catch (error) {
       console.error(error);
     }
@@ -73,6 +79,7 @@ export default function Altitude() {
   }
 
   useEffect(() => {
+    console.log('pressure memory:' + PressureMemory);
     const subscription = barometer.subscribe(({pressure}) => {
       setHeight(calculateHeight(pressure, pressureSea));
     });
@@ -84,11 +91,24 @@ export default function Altitude() {
   return (
     <Pressable style={Altitudestyles.heightView} onPress={updateHeight}>
       <Text style={Altitudestyles.heightText}>{height.toFixed(0)}</Text>
+      {!isCalibrated && (
+        <Icon
+          style={Altitudestyles.icon}
+          name="sync-problem"
+          size={20}
+          color="#D53232"
+        />
+      )}
     </Pressable>
   );
 }
 
 const Altitudestyles = StyleSheet.create({
+  icon: {
+    position: 'absolute',
+    top: 0,
+    right: 0
+  },
   heightView: {
     position: 'absolute',
     top: 0,
@@ -97,8 +117,11 @@ const Altitudestyles = StyleSheet.create({
     height: 60,
     width: 60,
     borderWidth: 2,
-    borderRadius: 50,
-    backgroundColor: '#353' // Set a background color that contrasts with the text color
+    borderBottomRightRadius: 30,
+    backgroundColor: '#2F4F4F', // Set a background color that contrasts with the text color
+    borderColor: 'rgba(47, 79, 79,0.4)',
+    borderStartWidth: 0,
+    borderTopWidth: 0
   },
   heightText: {
     fontSize: 20,
