@@ -5,6 +5,8 @@ import {barometer} from 'react-native-sensors';
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 export default function Altitude({PressureMemory, setPressureMemory}) {
   const [height, setHeight] = React.useState(0);
   const [pressureSea, setPressureSea] = useState(PressureMemory);
@@ -36,7 +38,7 @@ export default function Altitude({PressureMemory, setPressureMemory}) {
         lat +
         '&lon=' +
         lon +
-        '&appid=5886f8a39f021f7f8afff63952d42044'
+        '&appid='+API_KEY
     )
       .then(response => response.json())
       .then(data => {
@@ -91,6 +93,7 @@ export default function Altitude({PressureMemory, setPressureMemory}) {
   return (
     <Pressable style={Altitudestyles.heightView} onPress={updateHeight}>
       <Text style={Altitudestyles.heightText}>{height.toFixed(0)}</Text>
+      <Text style={Altitudestyles.metersText}>m.n.p.m</Text>
       {!isCalibrated && (
         <Icon
           style={Altitudestyles.icon}
@@ -128,6 +131,14 @@ const Altitudestyles = StyleSheet.create({
     color: 'white', // Set the text color to white
     alignSelf: 'center',
     marginTop: 'auto',
+    marginBottom: '0',
+    fontWeight: 'bold'
+  },
+  metersText: {
+    fontSize: 10,
+    color: 'white', // Set the text color to white
+    alignSelf: 'center',
+    marginTop: '0',
     marginBottom: 'auto',
     fontWeight: 'bold'
   }

@@ -6,9 +6,9 @@ import Altitude from './Alt/Altitude';
 import Map from './Map/Map';
 import StepCounter from './Step/StepCounter';
 
-Mapbox.setAccessToken(
-  'pk.eyJ1IjoiY3phcmx5cGFjemEiLCJhIjoiY2xvOHJrbHA1MDR4dTJqbG01ZDA3ZHloNiJ9.aTEnlaUtpzs7S10k1Pmbgw'
-);
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+Mapbox.setAccessToken(API_KEY);
 
 const requestLocationPermission = async () => {
   try {
@@ -110,14 +110,14 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   stepCouner: {
-    position: 'absolute',
+    position: 'relative',
     bottom: 20,
     left: 0,
-    right: 0,
     height: 60,
     width: 60,
     borderWidth: 2,
     borderRadius: 50,
+    zIndex: 10,
     backgroundColor: 'black' // Set a background color that contrasts with the text color
   }
 });
